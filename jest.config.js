@@ -1,5 +1,5 @@
 module.exports = {
-    setupFiles: ['./jestSetup.ts'],
+    setupFiles: ['<rootDir>/test/jestSetup.ts'],
     transform: {
         '^.+\\.(ts)$': 'ts-jest',
         '^.+\\.svelte$': ['svelte-jester', {
@@ -7,6 +7,7 @@ module.exports = {
         }],
     },
     testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(js?|ts?|svelte?)$',
+    modulePaths: ['<rootDir>'],
     moduleFileExtensions: ['js', 'ts', 'svelte'],
     modulePathIgnorePatterns: ['dist', 'build'],
     testEnvironment: 'jsdom',
