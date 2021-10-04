@@ -6,8 +6,11 @@ import Temp from '../Temp.svelte';
 
 describe('Temp', () => {
   describe('Layout', () => {
-    it('has Sign up header', () => {
+    it('has header', () => {
       render(Temp);
+      const page = screen.getByRole('heading', {name: 'This is test'});
+
+      expect(page).toBeInTheDocument();
     });
   });
 });
