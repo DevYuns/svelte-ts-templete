@@ -7,50 +7,47 @@ import userEvent from '@testing-library/user-event';
 
 describe('Temp', () => {
   describe('Layout', () => {
-    it('has header', () => {
+    beforeEach(() => {
       render(Temp);
+    });
+
+    it('has header', () => {
       const comp = screen.getByRole('heading', {name: 'This is test'});
 
       expect(comp).toBeInTheDocument();
     });
 
     it('has username input', () => {
-      render(Temp);
       const input = screen.getByLabelText('username');
 
       expect(input).toBeInTheDocument();
     });
 
     it('has email input', () => {
-      render(Temp);
       const input = screen.getByLabelText('email');
 
       expect(input).toBeInTheDocument();
     });
 
     it('has password input', () => {
-      render(Temp);
       const input = screen.getByLabelText('password');
 
       expect(input).toBeInTheDocument();
     });
 
     it('has password type for password input', () => {
-      render(Temp);
       const input = screen.getByLabelText('password') as HTMLInputElement;
 
       expect(input.type).toBe('password');
     });
 
     it('has password confirm input', () => {
-      render(Temp);
       const input = screen.getByLabelText('password confirm');
 
       expect(input).toBeInTheDocument();
     });
 
     it('has password type for password confirm input', () => {
-      render(Temp);
       const input = screen.getByLabelText(
         'password confirm',
       ) as HTMLInputElement;
@@ -59,14 +56,12 @@ describe('Temp', () => {
     });
 
     it('has sign up button', () => {
-      render(Temp);
       const button = screen.getByRole('button', {name: 'Sign up'});
 
       expect(button).toBeInTheDocument();
     });
 
     it('disables the button initially', () => {
-      render(Temp);
       const button = screen.getByRole('button', {name: 'Sign up'});
 
       expect(button).toBeDisabled();
@@ -74,8 +69,11 @@ describe('Temp', () => {
   });
 
   describe('Interactions', () => {
-    it('enables the button when the password and password confirm fields have same value', async () => {
+    beforeEach(() => {
       render(Temp);
+    });
+
+    it('enables the button when the password and password confirm fields have same value', async () => {
       const password = screen.getByLabelText('password');
       const passwordConfirm = screen.getByLabelText('password confirm');
 
@@ -85,6 +83,22 @@ describe('Temp', () => {
       await userEvent.type(passwordConfirm, 'password', {delay: 100});
 
       expect(button).not.toBeDisabled();
+    });
+
+    it('sends a request to a server after clicking the button', async () => {
+      const username = screen.getByLabelText('username');
+      const email = screen.getByLabelText('email');
+      const password = screen.getByLabelText('password');
+      const passwordConfirm = screen.getByLabelText('password confirm');
+
+      const button = screen.getByRole('button', {name: 'Sign up'});
+
+      await userEvent.type(username, 'dean', {delay: 10});
+      await userEvent.type(email, 'test@email.com', {delay: 10});
+      await userEvent.type(password, 'password', {delay: 10});
+      await userEvent.type(passwordConfirm, 'password', {delay: 10});
+
+      userEvent.click(button);
     });
   });
 });
