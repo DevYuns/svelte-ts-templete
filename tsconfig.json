@@ -26,6 +26,7 @@
     "noEmitHelpers": true,
     "noImplicitReturns": true,
     "noUnusedLocals": false,
+    "types": ["jest", "svelte"],
     "typeRoots": ["./@types", "./node_modules/@types"]
   }
 }

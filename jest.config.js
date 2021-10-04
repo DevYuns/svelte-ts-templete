@@ -1,8 +1,10 @@
 module.exports = {
     setupFiles: ['./jestSetup.ts'],
     transform: {
-        '^.+\\.(ts|tsx)$': 'ts-jest',
-        '^.+\\.svelte$': 'svelte-jester',
+        '^.+\\.(ts)$': 'ts-jest',
+        '^.+\\.svelte$': ['svelte-jester', {
+          'preprocess': './svelte.config.js',
+        }],
     },
     testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(js?|ts?|svelte?)$',
     moduleFileExtensions: ['js', 'ts', 'svelte'],
