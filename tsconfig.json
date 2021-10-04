@@ -5,7 +5,7 @@
     "./src/**/*",
     "babel.config.js",
     "jest.config.js",
-    "test/jestSetup.ts",
+    "test/*.ts",
     ".eslintrc.js",
     "rollup.config.js"
   ],

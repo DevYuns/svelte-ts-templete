@@ -1,6 +1,7 @@
 import autoprefixer from 'autoprefixer';
 import commonjs from '@rollup/plugin-commonjs';
 import css from 'rollup-plugin-css-only';
+import json from "@rollup/plugin-json";
 import livereload from 'rollup-plugin-livereload';
 import postcss from 'postcss';
 import resolve from '@rollup/plugin-node-resolve';
@@ -81,6 +82,8 @@ export default {
 		// If we're building for production (npm run build
 		// instead of npm run dev), minify
 		production && terser(),
+
+		json(),
 	],
 	watch: {
 		clearScreen: false,

@@ -1,5 +1,3 @@
-import '@testing-library/jest-dom';
-
 import {render, screen} from '@testing-library/svelte';
 
 import Temp from '../Temp.svelte';
@@ -12,7 +10,7 @@ describe('Temp', () => {
     });
 
     it('has header', () => {
-      const comp = screen.getByRole('heading', {name: 'This is test'});
+      const comp = screen.getByRole('heading', {name: 'Sign Up'});
 
       expect(comp).toBeInTheDocument();
     });
@@ -56,13 +54,13 @@ describe('Temp', () => {
     });
 
     it('has sign up button', () => {
-      const button = screen.getByRole('button', {name: 'Sign up'});
+      const button = screen.getByRole('button', {name: 'Sign Up'});
 
       expect(button).toBeInTheDocument();
     });
 
     it('disables the button initially', () => {
-      const button = screen.getByRole('button', {name: 'Sign up'});
+      const button = screen.getByRole('button', {name: 'Sign Up'});
 
       expect(button).toBeDisabled();
     });
@@ -77,7 +75,7 @@ describe('Temp', () => {
       const password = screen.getByLabelText('password');
       const passwordConfirm = screen.getByLabelText('password confirm');
 
-      const button = screen.getByRole('button', {name: 'Sign up'});
+      const button = screen.getByRole('button', {name: 'Sign Up'});
 
       await userEvent.type(password, 'password', {delay: 100});
       await userEvent.type(passwordConfirm, 'password', {delay: 100});
@@ -91,7 +89,7 @@ describe('Temp', () => {
       const password = screen.getByLabelText('password');
       const passwordConfirm = screen.getByLabelText('password confirm');
 
-      const button = screen.getByRole('button', {name: 'Sign up'});
+      const button = screen.getByRole('button', {name: 'Sign Up'});
 
       await userEvent.type(username, 'dean', {delay: 10});
       await userEvent.type(email, 'test@email.com', {delay: 10});
