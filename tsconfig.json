@@ -1,6 +1,31 @@
 {
   "extends": "@tsconfig/svelte/tsconfig.json",
 
-  "include": ["src/**/*"],
-  "exclude": ["node_modules/*", "__sapper__/*", "public/*"]
+  "include": [
+    "./src/**/*",
+    "babel.config.js",
+    "jest.config.js",
+    "jestSetup.ts",
+    ".eslintrc.js",
+    "rollup.config.js"
+  ],
+  "exclude": ["node_modules/*", "__sapper__/*", "public/*"],
+  "compilerOptions": {
+    "outDir": "build",
+    "lib": ["DOM", "ES2017", "WebWorker"],
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "importsNotUsedAsValues": "remove",
+    "strict": true,
+    "baseUrl": ".",
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "importHelpers": true,
+    "skipLibCheck": true,
+    "noEmitHelpers": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": false,
+    "typeRoots": ["./@types", "./node_modules/@types"]
+  }
 }
