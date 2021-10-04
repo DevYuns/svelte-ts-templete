@@ -1,8 +1,13 @@
 <script lang="ts">
 	import './translates';
-	import Temp from './components/pages/Temp.svelte';
+	import Router from 'svelte-spa-router';
+	import routes from './components/navigations/root';
 </script>
 
 <main>
-	<Temp/>
+	<nav>
+		<a href="/">Intro</a>
+		<a href="/#/temp">Temp</a>
+	</nav>
+	<Router routes={routes}/>
 </main>

@@ -12,7 +12,10 @@ module.exports = {
     testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(js?|ts?|svelte?)$',
     modulePaths: ['<rootDir>'],
     moduleFileExtensions: ['js', 'ts', 'svelte'],
-    modulePathIgnorePatterns: ['dist', 'build'],
+    modulePathIgnorePatterns: [
+      'dist', 
+      'build',
+    ],
     testEnvironment: 'jsdom',
     globals: {
         window: {},
