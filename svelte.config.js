@@ -19,6 +19,9 @@ module.exports = {
             require('postcss-cssnext'),
           ],
       },
+      typescript: {
+        tsconfigFile: './tsconfig.json',
+      },
     }),
   compilerOptions: {
     dev: !production,

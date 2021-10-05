@@ -1,11 +1,8 @@
-import autoprefixer from 'autoprefixer';
 import commonjs from '@rollup/plugin-commonjs';
 import css from 'rollup-plugin-css-only';
 import json from "@rollup/plugin-json";
 import livereload from 'rollup-plugin-livereload';
-import postcss from 'postcss';
 import resolve from '@rollup/plugin-node-resolve';
-import scss from 'rollup-plugin-scss';
 import svelte from 'rollup-plugin-svelte';
 import {terser} from 'rollup-plugin-terser';
 import typescript from '@rollup/plugin-typescript';
@@ -49,12 +46,6 @@ export default {
 		// a separate file - better for performance
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-call
 		css({output: 'bundle.css'}),
-		scss({
-			output: 'public/build/assets.css',
-			processor: (css) => postcss([autoprefixer])
-				.process(css)
-				.then((result) => result.css),
-		}),
 
 		// If you have external dependencies installed from
 		// npm, you'll most likely need these plugins. In
